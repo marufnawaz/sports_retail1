@@ -77,7 +77,7 @@ GROUP BY br.brand, CASE WHEN fi.listing_price < 42 THEN 'Budget'
                    ELSE 'Elite' END
 ORDER BY total_revenue DESC;
 ```
--- Split description into bins in increments of one hundred characters, and calculate average rating by for each bin.
+### 3. Split description into bins in increments of one hundred characters, and calculate average rating by for each bin.
 ```sql
 SELECT 
     FLOOR(LEN(i.description) / 100.0) * 100 AS description_length,
@@ -88,7 +88,7 @@ WHERE i.description IS NOT NULL
 GROUP BY FLOOR(LEN(i.description) / 100.0) * 100
 ORDER BY description_length;
 ```
-### 3. Count the number of reviews per brand per month.
+### 4. Count the number of reviews per brand per month.
 
 ```sql
 SELECT 
